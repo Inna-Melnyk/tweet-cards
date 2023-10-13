@@ -1,34 +1,35 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { TweetList } from '../../components/TweetList/TweetList';
 import { fetchUsers } from '../../redux/usersOperations';
-import { selectUsers } from '../../redux/selectors';
+import { selectUsers, selectIsLoading } from '../../redux/selectors';
 import { Container, BackIcon, BackLink, Title, Button } from './Tweets.styled';
-import { useState } from 'react';
+import { Loader } from '../../components/Loader/Loader';
 
 const Tweets = () => {
-  const [page, setPage] = useState(1);
-  console.log(page);
-
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
-
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/');
+  const [pageNumber, setPageNumber] = useState(1); // Track the current page number
+  const [loadMoreBtn, setloadMoreBtn] = useState(false);
+
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    const getUsers =  () => {
-       dispatch(fetchUsers(page));
+    const getUsers = async () => {
+      const data = await dispatch(fetchUsers(pageNumber));
+      if(data.payload.length === 3) setloadMoreBtn(true);
+      if(data.payload.length < 3) setloadMoreBtn(false);
     };
     getUsers();
-  }, [dispatch, page]);
+  }, [dispatch, pageNumber]);
 
+  const handleLoadMore = () => {
+    setPageNumber((prevPageNumber) => prevPageNumber + 1);
+  };
 
-   const handleOnClickMoreImages = () => {
-    setPage((prevPage) => prevPage + 1);
-
-   };
   return (
     <Container>
       <BackLink to={backLinkLocation.current}>
@@ -36,12 +37,15 @@ const Tweets = () => {
         <span>Back</span>
       </BackLink>
       <Title>Tweets List </Title>
-
       <TweetList users={users} />
 
-      <Button onClick={handleOnClickMoreImages}>Load more</Button>
+      {loadMoreBtn &&
+        !isLoading &&(
+         <Button onClick={handleLoadMore}>Load More</Button> )}
+      {isLoading && <Loader />}
     </Container>
   );
 };
 
 export default Tweets;
+

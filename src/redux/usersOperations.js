@@ -3,8 +3,6 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://65270e1f917d673fd76d62b9.mockapi.io/users';
 
-
-
 export const fetchUsers = createAsyncThunk(
   'users/fetchAll',
   async (pageNumber, thunkAPI) => {
@@ -19,7 +17,7 @@ export const fetchUsers = createAsyncThunk(
 
 export const updateUserById = createAsyncThunk(
   'users/updateUser',
-  async ( data , thunkAPI) => {
+  async (data, thunkAPI) => {
     console.log('id in request', data.id);
 
     console.log('newFollowers in request', data.updateFollowersAmount);

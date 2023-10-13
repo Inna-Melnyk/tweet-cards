@@ -55,10 +55,10 @@ export const TweetCard = ({ values: { avatar, id, tweets, followers } }) => {
         <InfoWraper>
           <Text> {tweets} tweets</Text>
           <BottomText>{formattedFollowersAmount} followers</BottomText>
-         
-            <Button onClick={handleOnFollowBtnCLick} isFollowing={isFollowing}>
-              {isFollowing ? 'Unfollow' : 'Follow'}
-            </Button>
+
+          <Button onClick={handleOnFollowBtnCLick} $following={isFollowing}>
+            {isFollowing ? 'Unfollow' : 'Follow'}
+          </Button>
         </InfoWraper>
       </Card>
     </li>
