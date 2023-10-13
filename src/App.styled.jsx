@@ -6,5 +6,4 @@ export const AppWrapper = styled.div`
   height: 100%;
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-color: #ebd8ff;
 `;

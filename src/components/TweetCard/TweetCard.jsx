@@ -15,7 +15,6 @@ import {
   Avatar,
   OuterCircle,
   InnerCircle,
-  FollowButton,
 } from './TweetCard.styled';
 import background from '../../assets/background.png';
 
@@ -56,13 +55,10 @@ export const TweetCard = ({ values: { avatar, id, tweets, followers } }) => {
         <InfoWraper>
           <Text> {tweets} tweets</Text>
           <BottomText>{formattedFollowersAmount} followers</BottomText>
-          {isFollowing ? (
-            <FollowButton onClick={handleOnFollowBtnCLick}>
-              unfollow
-            </FollowButton>
-          ) : (
-            <Button onClick={handleOnFollowBtnCLick}>follow</Button>
-          )}
+         
+            <Button onClick={handleOnFollowBtnCLick} isFollowing={isFollowing}>
+              {isFollowing ? 'Unfollow' : 'Follow'}
+            </Button>
         </InfoWraper>
       </Card>
     </li>

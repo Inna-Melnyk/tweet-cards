@@ -113,10 +113,6 @@ export const Button = styled.button`
   width: 196px;
   padding: 14px 28px;
   border-radius: 10.311px;
-  background: #ebd8ff;
+  background: ${({ isFollowing }) => (isFollowing ? '#5CD3A8' : '#ebd8ff')};
   box-shadow: 0px 3.43693px 3.43693px 0px rgba(0, 0, 0, 0.25);
-`;
-
-export const FollowButton = styled(Button)`
-  background: #5cd3a8;
 `;

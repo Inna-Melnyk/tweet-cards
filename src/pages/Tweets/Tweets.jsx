@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { TweetList } from '../../components/TweetList/TweetList';
 import { fetchUsers } from '../../redux/usersOperations';
 import { selectUsers } from '../../redux/selectors';
-import { Container, BackIcon, BackLink, Title } from './Tweets.styled';
+import { Container, BackIcon, BackLink, Title, Button } from './Tweets.styled';
 import { useState } from 'react';
 
 const Tweets = () => {
@@ -39,7 +39,7 @@ const Tweets = () => {
 
       <TweetList users={users} />
 
-      <button onClick={handleOnClickMoreImages}>Load more</button>
+      <Button onClick={handleOnClickMoreImages}>Load more</Button>
     </Container>
   );
 };

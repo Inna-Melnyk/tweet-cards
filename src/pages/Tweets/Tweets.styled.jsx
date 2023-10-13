@@ -32,3 +32,19 @@ export const BackLink = styled(Link)`
     transform: scale(1.02);
   }
 `;
+
+export const Button = styled.button`
+  background-color: #512ca5;
+  color: #ebd8ff;
+  padding: 10px 40px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 300ms ease-in;
+  margin: 0 auto;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
