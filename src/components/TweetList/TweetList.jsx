@@ -2,8 +2,6 @@ import { TweetCard } from '../TweetCard/TweetCard';
 import { List } from './TweetList.styled';
 
 export const TweetList = ({ users }) => {
-  // const isLoading = useSelector(selectIsLoading);
-
   return (
     <>
       {users.length > 0 && (

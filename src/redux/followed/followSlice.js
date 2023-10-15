@@ -12,11 +12,9 @@ const followSlice = createSlice({
         
       const index = state.followed.indexOf(action.payload);
 
-      // If found in the 'followed' array, remove it
       if (index !== -1) {
         state.followed.splice(index, 1);
       }
-      // If not found in the 'followed' array, add it
       else {
         state.followed.push(action.payload);
       }

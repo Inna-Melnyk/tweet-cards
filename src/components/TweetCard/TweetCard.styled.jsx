@@ -1,21 +1,35 @@
 import styled from 'styled-components';
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-// import background from '../../assets/background.png';
+import background from '../../assets/background.png';
+import background2x from '../../assets/background@2x.png';
 
 export const Card = styled.div`
   position: relative;
   width: 380px;
   height: 460px;
-  padding: 28px 36px;
+  padding: 284px 36px 36px;
   border-radius: 20px;
-  background: linear-gradient(
-    115deg,
-    #471ca9 -0.99%,
-    #5736a3 54.28%,
-    #4b2a99 78.99%
-  );
   box-shadow: -2.5777px 6.87386px 20.62157px 0px rgba(0, 0, 0, 0.23);
+  background: url(${background}),
+    linear-gradient(115deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
+  background-size:
+    308px 168px,
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 8%;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background: url(${background2x}),
+      linear-gradient(115deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
+    background-size:
+      308px 168px,
+      100% 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 8%;
+  }
 
   &::after {
     position: absolute;
@@ -75,11 +89,6 @@ export const Avatar = styled.img`
   border-radius: 50%;
 `;
 
-export const Image = styled.img`
-  width: 308px;
-  height: 168px;
-  margin-bottom: 88px;
-`;
 export const LogoIcon = styled(Logo)`
   position: absolute;
   top: 20px;

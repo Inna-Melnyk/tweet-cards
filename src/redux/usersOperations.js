@@ -18,40 +18,13 @@ export const fetchUsers = createAsyncThunk(
 export const updateUserById = createAsyncThunk(
   'users/updateUser',
   async (data, thunkAPI) => {
-    console.log('id in request', data.id);
-
-    console.log('newFollowers in request', data.updateFollowersAmount);
     try {
       const response = await axios.put(`/users/${data.id}`, {
         followers: data.updateFollowersAmount,
       });
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
-
-export const updateUserThunk = createAsyncThunk(
-  'users/updateUser',
-  async (data, { rejectWithValue }) => {
-    try {
-      let res = null;
-      if (data.avatarURL) {
-        res = await axios.patch(
-          'users/update',
-          { name: data.name, avatar: data.avatarURL },
-          {
-            headers: { 'Content-Type': 'multipart/form-data' },
-          },
-        );
-      } else {
-        res = await axios.patch('users/update', { name: data.name });
-      }
-      return res.data;
-    } catch (error) {
-      return rejectWithValue(error.response.status);
     }
   },
 );

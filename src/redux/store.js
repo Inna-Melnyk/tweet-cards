@@ -14,16 +14,21 @@ import storage from 'redux-persist/lib/storage';
 import { usersReducer } from './usersSlice';
 import { followReducer } from './followed/followSlice';
 
-// // Persisting token field from auth slice to localstorage
 const followPersistConfig = {
   key: 'follow',
   storage,
   whitelist: ['followed'],
 };
 
+const usersPersistConfig = {
+  key: 'users',
+  storage: storage,
+  whitelist: ['usersAll'],
+};
+
 export const store = configureStore({
   reducer: {
-    users: usersReducer,
+    users: persistReducer(usersPersistConfig, usersReducer),
     follow: persistReducer(followPersistConfig, followReducer),
   },
 
@@ -36,4 +41,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-

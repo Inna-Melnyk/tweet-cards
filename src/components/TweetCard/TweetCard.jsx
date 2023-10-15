@@ -8,7 +8,6 @@ import {
   BottomText,
   Button,
   Card,
-  Image,
   LogoIcon,
   InfoWraper,
   AvatarWrapper,
@@ -16,7 +15,6 @@ import {
   OuterCircle,
   InnerCircle,
 } from './TweetCard.styled';
-import background from '../../assets/background.png';
 
 export const TweetCard = ({ values: { avatar, id, tweets, followers } }) => {
   const [isFollowing, setisFollowing] = useState(false);
@@ -43,7 +41,6 @@ export const TweetCard = ({ values: { avatar, id, tweets, followers } }) => {
     <li key={id}>
       <Card>
         <LogoIcon />
-        <Image src={background} alt="background" />
 
         <AvatarWrapper>
           <OuterCircle />
