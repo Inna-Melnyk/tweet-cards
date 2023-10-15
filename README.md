@@ -1,4 +1,4 @@
-# Tweeeet
+# Tweeeets
 
  Tweeeets — це двосторінкова програма, де ви можете переглядати доступних користувачів із твітами та підписуватися/відписуватися на них/ Tweeeets is a two-page application, where you can see available users with tweets and follow/ unfollow them.
 
