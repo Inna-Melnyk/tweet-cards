@@ -4,7 +4,7 @@
 
 ![TWEETS PAGE](/src/assets/tweeets%20screen.JPG)
 
-# Основні функції / Main functions
+## Основні функції / Main functions
 - Перегляд твітів та можливість підписатись на користувача. / VieView tweets and the ability to follow a user.
 - При оновленні сторінки відображаються обрані підписки. / Selected subscriptions are displayed when the page refreshes
 - При натисканні на кнопку "Load more" підвантажуються нові користувачі. / When you click on the "Load more" button, new users are loaded
